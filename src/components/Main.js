@@ -1,9 +1,9 @@
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
-import greekSalad from "../images/greek_salad.jpg";
-import bruchetta from "../images/bruchetta.svg";
-import lemonDessert from "../images/lemon_dessert.jpg";
+import greekSalad from "images/greek_salad.jpg";
+import bruchetta from "images/bruchetta.svg";
+import lemonDessert from "images/lemon_dessert.jpg";
 
 function Main() {
   return (

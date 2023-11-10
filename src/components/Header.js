@@ -1,5 +1,5 @@
 import Button from "react-bootstrap/Button";
-import restaurantFood from "../images/restaurant_food.jpg";
+import restaurantFood from "images/restaurant_food.jpg";
 
 function Header() {
   return (
