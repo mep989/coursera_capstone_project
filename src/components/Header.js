@@ -1,4 +1,5 @@
 import Button from "react-bootstrap/Button";
+import restaurantFood from "../images/restaurant_food.jpg";
 
 function Header() {
   return (
@@ -12,7 +13,7 @@ function Header() {
         </p>
         <Button>Reserve a Table</Button>
       </section>
-      <img src="../images/reserve.png" alt="Reserve a Table" />
+      <img src={restaurantFood} alt="Reserve a Table" width="400" />
     </header>
   );
 }

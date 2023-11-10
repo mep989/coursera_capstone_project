@@ -1,6 +1,9 @@
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
+import greekSalad from "../images/greek_salad.jpg";
+import bruchetta from "../images/bruchetta.svg";
+import lemonDessert from "../images/lemon_dessert.jpg";
 
 function Main() {
   return (
@@ -11,7 +14,7 @@ function Main() {
       </section>
       <section className="bottom_section">
         <article className="bottom">
-          <img src="../images/greek_salad.png" alt="Greek salad" />
+          <img src={greekSalad} alt="Greek salad" width="400" />
           <h3>Greek salad</h3>
           <p>
             The famous greek salad of crispy lettuce, peppers, olives and our
@@ -23,7 +26,7 @@ function Main() {
           </Button>
         </article>
         <article className="bottom">
-          <img src="../images/bruchetta.png" alt="Bruchetta" />
+          <img src={bruchetta} alt="Bruchetta" width="400" />
           <h3>Bruchetta</h3>
           <p>
             Our Bruschetta is made from grilled bread that has been smeared with
@@ -34,7 +37,7 @@ function Main() {
           </Button>
         </article>
         <article className="bottom">
-          <img src="images/lemon_dessert" alt="Lemon Dessert" />
+          <img src={lemonDessert} alt="Lemon Dessert" width="400" />
           <h3>Lemon Dessert</h3>
           <p>
             This comes straight from grandma&apos;s recipe book, every last

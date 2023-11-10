@@ -1,10 +1,10 @@
 function Nav() {
   return (
-    <nav>
+    <nav id="page-top">
       <a href="#page-top">
         <img
           className="navbar-logo"
-          src="assets/img/logo.png"
+          src="assets/img/logo.svg"
           alt="Company logo"
         />
       </a>
