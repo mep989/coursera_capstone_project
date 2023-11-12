@@ -1,0 +1,32 @@
+@import "../../styles/variables";
+
+.navbar {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-family: $karla;
+  font-weight: bolder;
+  font-size: 1.35rem;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.navbar .container {
+  max-width: 61rem;
+}
+
+.navbar-nav {
+  margin-left: auto;
+  margin-top: 0.3rem;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .container .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+  }
+}
+
+.navbar-logo {
+  height: 3.5rem;
+}
