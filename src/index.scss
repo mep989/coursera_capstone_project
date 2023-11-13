@@ -18,10 +18,35 @@ code {
 .btn-primary {
   @include button-variant(
     $primary-color-2, 
-    darken($primary-color-2, 7.5%) 
+    darken($primary-color-2, 2.5%),
+    #000,
+    lighten($primary-color-2, 5%),
+    darken($primary-color-2, 2.5%),
+    #000,
+    darken($primary-color-2, 2.5%),
+    darken($primary-color-2, 2.5%),
+    #000
   );
   font-family: $karla;
   font-weight: bold;
   font-size: 1.5rem;
   border-radius: 1rem;
+}
+
+// override default bootstrap link button styling
+.btn-link {
+  @include button-variant(
+    transparent, 
+    transparent,
+    #000,
+    transparent,
+    transparent,
+    $primary-color-1,
+    transparent,
+    transparent,
+    darken($primary-color-1, 5%),
+  );
+  font-family: $karla;
+  font-weight: bold;
+  text-decoration: none;
 }
