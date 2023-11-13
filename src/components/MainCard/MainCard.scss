@@ -2,7 +2,7 @@
 
 article.main-card {
   position: relative;
-  min-height: 34rem;
+  min-height: 38.5rem;
   background-color: $highlight-color-1;
   border-radius: 1rem;
   margin-right: 0.75rem;
@@ -10,7 +10,7 @@ article.main-card {
 
 article.main-card img {
   border-radius: 1rem 1rem 0rem 0rem;
-  height: 13.4rem;
+  height: 15rem;
   width: 100%;
   object-fit: cover; object-position: 70% 50%;
 }
@@ -40,6 +40,7 @@ article.main-card section p {
 
 article.main-card p {
   color: #000000;
+  font-size: 1.1rem;
   margin-top: 2rem;
   margin-right: 1.5rem;
   margin-left: 1.5rem;

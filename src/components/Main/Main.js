@@ -26,7 +26,7 @@ const cardValues = [
   {
     title: "Lemon Dessert",
     imageSrc: lemonDessert,
-    description: `This comes straight from grandma&apos;s recipe book, every
+    description: `This comes straight from grandma's recipe book, every
                   last ingredient has been sourced and is as authentic as can be
                   imagined.`,
     price: "$5.00",

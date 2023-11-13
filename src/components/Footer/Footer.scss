@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+
+footer {
+  background-color: $primary-color-1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer img {
+  display: inline-block;
+  border-radius: 0.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 2rem;
+}
+
+footer p {
+  display: inline-block;
+  color: #fff;
+  font-size: 1rem;
+  padding-left: 1rem;
+}
