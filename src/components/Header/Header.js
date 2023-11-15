@@ -12,9 +12,10 @@ twist.`;
 
   return (
     <header id="page-top">
+      <div className="float-background" />
       <Container>
         <Row>
-          <Col>
+          <Col xs={12} sm={7}>
             <section>
               <h1>Little Lemon</h1>
               <h2>Chicago</h2>
@@ -24,9 +25,9 @@ twist.`;
               </Button>
             </section>
           </Col>
-          <Col>
+          <Col className="shrink-image" xs={12} sm={5}>
             <div className="right-align">
-              <img src={restaurantFood} alt="Reserve a Table" width="400" />
+              <img src={restaurantFood} alt="Reserve a Table" />
             </div>
           </Col>
         </Row>
