@@ -5,7 +5,11 @@ article.main-card {
   min-height: 38.5rem;
   background-color: $highlight-color-1;
   border-radius: 1rem;
-  margin-right: 0.75rem;
+  margin-top: 1rem;
+}
+
+.bottom-row .col {
+  margin-top: 1rem;
 }
 
 article.main-card img {
@@ -55,4 +59,10 @@ article.main-card button {
 
 article.main-card button svg {
   padding-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  article.main-card {
+    margin-top: 2rem;
+  }
 }

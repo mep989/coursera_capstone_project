@@ -14,11 +14,6 @@ header .float-background {
   z-index: -1;
 }
 
-header .container {
-  //max-height: 24rem;
-  max-width: 61rem;
-}
-
 header h1 {
   color: $primary-color-2;
   font-family: $markazi;
@@ -55,7 +50,6 @@ header section {
 
 header .shrink-image {
   max-width: 100%;
-  //height: 29rem;
 }
 
 header .right-align {
@@ -71,5 +65,27 @@ header img {
   height: 50vw;
   max-height: 26.5rem;
   max-width: 25rem;
-  object-fit: cover; //object-position: 70% 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 575px) {
+  header .right-align {
+    padding-top: 0rem;
+  }
+
+  header img {
+    margin-top: 0rem;
+    max-width: 100%;
+  }
+
+  .container-sm,
+  header .container {
+    max-width: 48rem;
+  }
+}
+
+@media (max-width: 768px) {
+.container-md, .container-sm, header .container {
+    max-width: 44rem;
+}
 }

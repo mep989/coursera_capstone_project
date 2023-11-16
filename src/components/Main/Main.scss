@@ -6,14 +6,6 @@ main {
   margin-bottom: 7rem;
 }
 
-main .container {
-  max-width: 61rem;
-}
-
-main .bottom-row {
-  margin-top: 2rem;
-}
-
 main h1 {
   color: #000000;
   font-family: $markazi;
@@ -23,10 +15,23 @@ main h1 {
 
 main .btn-primary {
   height: 4rem;
-  width: 14.5rem;
-  margin: 1.75rem 1.25rem 0rem 0rem;
+  width: 100%;
+  margin: 1.75rem 0rem 0rem 0rem;
 }
 
 main .right-align {
   text-align: right;
+}
+
+@media (max-width: 575px) {
+  main {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main .btn-primary {
+    margin: 1rem 0rem 0rem 0rem;
+  }
 }

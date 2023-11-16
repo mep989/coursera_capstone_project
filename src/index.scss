@@ -3,8 +3,19 @@
 
 body {
   margin: 0;
-  font-family: $karla, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family:
+    $karla,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -17,7 +28,7 @@ code {
 // override default bootstrap primary button styling
 .btn-primary {
   @include button-variant(
-    $primary-color-2, 
+    $primary-color-2,
     darken($primary-color-2, 2.5%),
     #000,
     lighten($primary-color-2, 5%),
@@ -36,7 +47,7 @@ code {
 // override default bootstrap link button styling
 .btn-link {
   @include button-variant(
-    transparent, 
+    transparent,
     transparent,
     #000,
     transparent,
@@ -44,9 +55,50 @@ code {
     $primary-color-1,
     transparent,
     transparent,
-    darken($primary-color-1, 5%),
+    darken($primary-color-1, 5%)
   );
   font-family: $karla;
   font-weight: bold;
   text-decoration: none;
+}
+
+@media (min-width: 576px) {
+  .container-sm,
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 50rem;
+  }
+}
+@media (min-width: 992px) {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 56rem;
+  }
+}
+@media (min-width: 1200px) {
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 61rem;
+  }
+}
+@media (min-width: 1400px) {
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 61rem;
+  }
 }

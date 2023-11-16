@@ -35,7 +35,7 @@ const cardValues = [
 
 const cards = cardValues.map((props) => {
   return (
-    <Col key={v4()}>
+    <Col key={v4()} xs={12} md={4}>
       <Card {...props} />
     </Col>
   );
@@ -46,16 +46,16 @@ function Main() {
     <main>
       <Container>
         <Row>
-          <Col xs={7}>
+          <Col>
             <h1>This weeks specials!</h1>
           </Col>
-          <Col className="right-align">
+          <Col xs={12} md={3} className="right-align">
             <Button>
               <span>Online Menu</span>
             </Button>
           </Col>
         </Row>
-        <Row className="bottom-row">{cards}</Row>
+        <Row className="bottom-row gx-4">{cards}</Row>
       </Container>
     </main>
   );
