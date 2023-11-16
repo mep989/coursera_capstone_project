@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -5,8 +6,29 @@ import Navbar from "react-bootstrap/Navbar";
 import "./ScrollNav.scss";
 
 function ScrollNav() {
+  useEffect(() => {
+    // Navbar shrink function
+    const navbarShrink = () => {
+      const navbarCollapsible = document.body.querySelector("#main-nav");
+      if (!navbarCollapsible) {
+        return;
+      }
+      if (window.scrollY < 10) {
+        navbarCollapsible.classList.remove("navbar-shrink");
+      } else {
+        navbarCollapsible.classList.add("navbar-shrink");
+      }
+    };
+
+    // Shrink the navbar
+    navbarShrink();
+
+    // Shrink the navbar when page is scrolled
+    document.addEventListener("scroll", navbarShrink);
+  }, []);
+
   return (
-    <Navbar expand="lg">
+    <Navbar id="main-nav" expand="lg" className="scroll-nav">
       <Container>
         <Navbar.Brand href="/home#page-top">
           <img

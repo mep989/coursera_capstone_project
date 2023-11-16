@@ -1,15 +1,22 @@
 @import "../../styles/variables";
 
 .navbar {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 1.5rem 1rem 1.5rem 1rem;
   font-family: $karla;
   font-weight: bolder;
   font-size: 1.35rem;
   color: #000000;
   background-color: #ffffff;
+  border-bottom: 1px solid $primary-color-1;
+  transition: padding-top 0.3s, padding-bottom 0.3s;
+}
+
+.navbar.scroll-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .navbar .container {
@@ -24,9 +31,22 @@
 @media (min-width: 992px) {
   .navbar-expand-lg .container .navbar-nav .nav-link {
     padding-right: 1.5rem;
+    transition: font-size 0.3s, padding-left 0.3s, padding-right 0.3s, height 0.3s;
+  }
+
+  .navbar.navbar-shrink .container .navbar-nav .nav-link {
+    font-size: 1.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    transition: font-size 0.3s, padding-left 0.3s, padding-right 0.3s, height 0.3s;
   }
 }
 
 .navbar-logo {
   height: 3.5rem;
+  transition: height 0.3s;
+}
+
+.navbar.navbar-shrink .navbar-logo {
+  height: 3.25rem;
 }
