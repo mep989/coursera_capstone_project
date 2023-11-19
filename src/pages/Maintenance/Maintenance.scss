@@ -1,0 +1,36 @@
+@import "../../styles/variables";
+
+header.maintenance-page {
+    background-color: $primary-color-1;
+}
+
+header.maintenance-page .col {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    text-align: center;
+}
+
+header.maintenance-page h1 {
+    padding-top: 0rem;
+    height: auto;
+}
+
+main.maintenance-page {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-size: 2rem;
+}
+
+main.maintenance-page .col {
+    text-align: center;
+}
+
+.fill-remaining {
+    height: calc(100vh - 489px);
+}
+
+@media (max-width: 523px) {
+    .fill-remaining {
+        height: calc(100vh - 530px);
+    }
+}

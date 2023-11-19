@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { LinkContainer } from "react-router-bootstrap";
 
 import "./ScrollNav.scss";
 
@@ -27,25 +28,48 @@ function ScrollNav() {
     document.addEventListener("scroll", navbarShrink);
   }, []);
 
+  // Scroll to #page-top
+  const scrollToTop = () => {
+    const pageTop = document.body.querySelector("#page-top");
+    window.scrollTo({
+      top: pageTop,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <Navbar id="main-nav" expand="lg" className="scroll-nav">
       <Container>
-        <Navbar.Brand href="/home#page-top">
-          <img
-            className="navbar-logo"
-            src="assets/img/logo.svg"
-            alt="Company logo"
-          />
-        </Navbar.Brand>
+        <LinkContainer to="/">
+          <Navbar.Brand onClick={scrollToTop}>
+            <img
+              className="navbar-logo"
+              src="assets/img/logo.svg"
+              alt="Company logo"
+            />
+          </Navbar.Brand>
+        </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/menu">Menu</Nav.Link>
-            <Nav.Link href="/reservations">Reservations</Nav.Link>
-            <Nav.Link href="/order-online">Order Online</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
+            <LinkContainer to="/" onClick={scrollToTop}>
+              <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/under-maintenance">
+              <Nav.Link>About</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/under-maintenance">
+              <Nav.Link>Menu</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/reservations">
+              <Nav.Link>Reservations</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/under-maintenance">
+              <Nav.Link>Order Online</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/under-maintenance">
+              <Nav.Link>Login</Nav.Link>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Container>

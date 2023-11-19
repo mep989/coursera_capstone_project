@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import ScrollNav from "components/ScrollNav/ScrollNav";
-import Header from "components/Header/Header";
-import Main from "components/Main/Main";
-import Footer from "components/Footer/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "pages/Layout/Layout";
+import Home from "pages/Home/Home";
+import Maintenance from "pages/Maintenance/Maintenance";
 
 import "App.scss";
 
@@ -18,12 +18,14 @@ function App() {
 
   return (
     isReady && (
-      <>
-        <ScrollNav />
-        <Header />
-        <Main />
-        <Footer />
-      </>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="under-maintenance" element={<Maintenance />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     )
   );
 }
