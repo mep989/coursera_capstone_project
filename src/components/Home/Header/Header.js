@@ -1,4 +1,5 @@
 import { Button, Container, Row, Col } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 import restaurantFood from "images/restaurant_food.jpg";
 
 import "./Header.scss";
@@ -20,9 +21,11 @@ twist.`;
               <h1>Little Lemon</h1>
               <h2>Chicago</h2>
               <pre className="header-description">{headerDescrip}</pre>
-              <Button>
-                <span>Reserve a Table</span>
-              </Button>
+              <LinkContainer to="/reserve">
+                <Button>
+                  <span>Reserve a Table</span>
+                </Button>
+              </LinkContainer>
             </section>
           </Col>
           <Col className="shrink-image" xs={12} sm={5}>
