@@ -1,12 +1,12 @@
 import { Container, Row, Col } from "react-bootstrap";
-import Footer from "components/Footer/Footer";
+import Footer from "components/Common/Footer/Footer";
 
 import "./Maintenance.scss";
 
 function Maintenance() {
   return (
     <>
-      <header className="maintenance-page">
+      <header className="maintenance-page fade-in">
         <Container>
           <Row>
             <Col>
@@ -15,7 +15,7 @@ function Maintenance() {
           </Row>
         </Container>
       </header>
-      <main className="maintenance-page fill-remaining">
+      <main className="maintenance-page fill-remaining fade-in">
         <Container>
           <Row>
             <Col>

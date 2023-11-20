@@ -1,0 +1,86 @@
+@import "../../../styles/variables";
+
+header.reserve-view {
+  background-color: $primary-color-1;
+}
+
+header.reserve-view h2 {
+  color: #ffffff;
+  font-family: $markazi;
+  font-size: 2.9rem;
+  height: 3.25rem;
+}
+
+header.reserve-view .header-description {
+  color: #ffffff;
+  font-family: $karla;
+  font-size: 1.5rem;
+  padding-left: 0.1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.75rem;
+}
+
+header.reserve-view .btn-primary span {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+header.reserve-view section {
+  padding-bottom: 0rem;
+  min-width: 22rem;
+}
+
+header.reserve-view .shrink-image {
+  max-width: 100%;
+}
+
+header.reserve-view .right-align {
+  text-align: right;
+  width: 100%;
+  padding-top: calc(425px - 50vw);
+}
+
+header.reserve-view img {
+  // margin-top: 2.5rem;
+  border-radius: 1rem;
+  width: 100%;
+  // height: 50vw;
+  max-height: 26.5rem;
+  // max-width: 25rem;
+  object-fit: cover;
+}
+
+@media (max-width: 408px) {
+  header.reserve-view .container h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header.reserve-view h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 575px) {
+  header.reserve-view .right-align {
+    padding-top: 0rem;
+  }
+
+  header.reserve-view img {
+    margin-top: 0rem;
+    max-width: 100%;
+  }
+
+  .container-sm,
+  header.reserve-view .container {
+    max-width: 48rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-md, .container-sm, header.reserve-view .container {
+      max-width: 44rem;
+  }
+}

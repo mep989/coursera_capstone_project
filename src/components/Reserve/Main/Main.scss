@@ -1,0 +1,45 @@
+@import "../../../styles/variables";
+
+main.reserve-view {
+  margin-top: 3rem;
+  padding-bottom: 2rem;
+  margin-bottom: 7rem;
+}
+
+main.reserve-view h1 {
+  color: #000000;
+  font-family: $markazi;
+  font-size: 4.75rem;
+  padding-top: 1rem;
+}
+
+main.reserve-view .btn-primary {
+  height: 4rem;
+  width: 100%;
+  margin: 1.75rem 0rem 0rem 0rem;
+}
+
+main.reserve-view .right-align {
+  text-align: right;
+}
+
+@media (max-width: 575px) {
+  main.reserve-view {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main.reserve-view .btn-primary {
+    margin: 1rem 0rem 0rem 0rem;
+  }
+}
+
+main.reserve-view .bottom-row {
+  margin-top: 1rem;
+}
+
+main.reserve-view .bottom-row .col {
+  margin-top: 1rem;
+}

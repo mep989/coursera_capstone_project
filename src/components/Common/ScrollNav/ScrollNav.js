@@ -3,10 +3,13 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { LinkContainer } from "react-router-bootstrap";
+import { useLocation } from "react-router-dom";
 
 import "./ScrollNav.scss";
 
 function ScrollNav() {
+  const currentUrl = useLocation();
+
   useEffect(() => {
     // Navbar shrink function
     const navbarShrink = () => {
@@ -29,11 +32,14 @@ function ScrollNav() {
   }, []);
 
   // Scroll to #page-top
-  const scrollToTop = () => {
+  const scrollToTop = (toUrl) => {
     const pageTop = document.body.querySelector("#page-top");
+    let behavior = "smooth";
+    if (toUrl !== currentUrl.pathname) behavior = "instant";
+
     window.scrollTo({
       top: pageTop,
-      behavior: "smooth",
+      behavior,
     });
   };
 
@@ -41,7 +47,7 @@ function ScrollNav() {
     <Navbar id="main-nav" expand="lg" className="scroll-nav">
       <Container>
         <LinkContainer to="/">
-          <Navbar.Brand onClick={scrollToTop}>
+          <Navbar.Brand onClick={() => scrollToTop("/")}>
             <img
               className="navbar-logo"
               src="assets/img/logo.svg"
@@ -52,7 +58,7 @@ function ScrollNav() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <LinkContainer to="/" onClick={scrollToTop}>
+            <LinkContainer to="/" onClick={() => scrollToTop("/")}>
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/under-maintenance">
@@ -61,7 +67,10 @@ function ScrollNav() {
             <LinkContainer to="/under-maintenance">
               <Nav.Link>Menu</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/reservations">
+            <LinkContainer
+              to="/reserve"
+              onClick={() => scrollToTop("/reserve")}
+            >
               <Nav.Link>Reservations</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/under-maintenance">

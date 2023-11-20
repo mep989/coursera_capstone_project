@@ -43,7 +43,7 @@ const cards = cardValues.map((props) => {
 
 function Main() {
   return (
-    <main>
+    <main className="reserve-view fade-in">
       <Container>
         <Row>
           <Col>

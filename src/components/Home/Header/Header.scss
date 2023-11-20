@@ -1,11 +1,6 @@
-@import "../../styles/variables";
+@import "../../../styles/variables";
 
-header {
-  position: relative;
-  padding-top: 4.83rem;
-}
-
-header .float-background {
+header.home-view .float-background {
   background-color: $primary-color-1;
   position: absolute;
   top: 0;
@@ -14,22 +9,14 @@ header .float-background {
   z-index: -1;
 }
 
-header h1 {
-  color: $primary-color-2;
-  font-family: $markazi;
-  font-size: 4.75rem;
-  padding-top: 1rem;
-  height: 4.5rem;
-}
-
-header h2 {
+header.home-view h2 {
   color: #ffffff;
   font-family: $markazi;
   font-size: 2.9rem;
   height: 3.25rem;
 }
 
-.header-description {
+header.home-view .header-description {
   color: #ffffff;
   font-family: $karla;
   font-size: 1.5rem;
@@ -38,27 +25,27 @@ header h2 {
   line-height: 1.75rem;
 }
 
-header .btn-primary span {
+header.home-view .btn-primary span {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-header section {
+header.home-view section {
   padding-bottom: 2rem;
   min-width: 22rem;
 }
 
-header .shrink-image {
+header.home-view .shrink-image {
   max-width: 100%;
 }
 
-header .right-align {
+header.home-view .right-align {
   text-align: right;
   width: 100%;
   padding-top: calc(425px - 50vw);
 }
 
-header img {
+header.home-view img {
   margin-top: 2.5rem;
   border-radius: 1rem;
   width: 100%;
@@ -69,23 +56,23 @@ header img {
 }
 
 @media (max-width: 575px) {
-  header .right-align {
+  header.home-view .right-align {
     padding-top: 0rem;
   }
 
-  header img {
+  header.home-view img {
     margin-top: 0rem;
     max-width: 100%;
   }
 
   .container-sm,
-  header .container {
+  header.home-view .container {
     max-width: 48rem;
   }
 }
 
 @media (max-width: 768px) {
-.container-md, .container-sm, header .container {
-    max-width: 44rem;
-}
+  .container-md, .container-sm, header.home-view .container {
+      max-width: 44rem;
+  }
 }

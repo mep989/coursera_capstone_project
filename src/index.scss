@@ -102,3 +102,29 @@ code {
     max-width: 61rem;
   }
 }
+
+header {
+  position: relative;
+  padding-top: 4.83rem;
+}
+
+header h1 {
+  color: $primary-color-2;
+  font-family: $markazi;
+  font-size: 4.75rem;
+  padding-top: 1rem;
+  height: 4.5rem;
+}
+
+.fade-in {
+  animation: fade-in 0.75s;
+}
+
+@keyframes fade-in {
+  0% { 
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}

@@ -11,7 +11,7 @@ recipes served with a modern
 twist.`;
 
   return (
-    <header id="page-top">
+    <header id="page-top" className="home-view fade-in">
       <div className="float-background" />
       <Container>
         <Row>

@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@import "../../../styles/variables";
 
 .navbar {
   padding: 1.5rem 1rem 1.5rem 1rem;
@@ -6,8 +6,11 @@
   font-weight: bolder;
   color: #000000;
   background-color: #ffffff;
-  border-bottom: 2px solid $primary-color-1;
   transition: padding-top 0.3s, padding-bottom 0.3s;
+}
+
+.navbar.navbar-shrink {
+  border-bottom: 2px solid $primary-color-1;
 }
 
 .navbar.scroll-nav {

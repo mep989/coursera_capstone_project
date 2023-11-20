@@ -1,0 +1,64 @@
+@import "../../../styles/variables";
+
+article.main-card {
+  position: relative;
+  min-height: 38.5rem;
+  background-color: $highlight-color-1;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+article.main-card img {
+  border-radius: 1rem 1rem 0rem 0rem;
+  height: 15rem;
+  width: 100%;
+  object-fit: cover; object-position: 70% 50%;
+}
+
+article.main-card h3 {
+  display: inline-block;
+  color: #000000;
+  font-family: $markazi;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+article.main-card section {
+  display: flex;
+  justify-content: space-between;
+}
+
+article.main-card section p {
+  display: inline-block;
+  color: $secondary-color-1;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1.6rem;
+}
+
+article.main-card p {
+  color: #000000;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+article.main-card button {
+  position: absolute;
+  bottom: 2rem;
+  margin-left: 0.7rem;
+  margin-top: auto;
+}
+
+article.main-card button svg {
+  padding-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  article.main-card {
+    margin-top: 2rem;
+  }
+}

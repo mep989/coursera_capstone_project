@@ -1,37 +1,45 @@
-@import "../../styles/variables";
+@import "../../../styles/variables";
 
-main {
-  margin-top: 7rem;
+main.home-view {
+  margin-top: 3rem;
   padding-bottom: 2rem;
   margin-bottom: 7rem;
 }
 
-main h1 {
+main.home-view h1 {
   color: #000000;
   font-family: $markazi;
   font-size: 4.75rem;
   padding-top: 1rem;
 }
 
-main .btn-primary {
+main.home-view .btn-primary {
   height: 4rem;
   width: 100%;
   margin: 1.75rem 0rem 0rem 0rem;
 }
 
-main .right-align {
+main.home-view .right-align {
   text-align: right;
 }
 
 @media (max-width: 575px) {
-  main {
+  main.home-view {
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
 }
 
 @media (max-width: 768px) {
-  main .btn-primary {
+  main.home-view .btn-primary {
     margin: 1rem 0rem 0rem 0rem;
   }
+}
+
+main.home-view .bottom-row {
+  margin-top: 1rem;
+}
+
+main.home-view .bottom-row .col {
+  margin-top: 1rem;
 }
