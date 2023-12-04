@@ -5,8 +5,10 @@ import Footer from "components/Common/Footer/Footer";
 function Home() {
   return (
     <>
-      <Header />
-      <Main />
+      <div className="fill-remainder">
+        <Header />
+        <Main />
+      </div>
       <Footer />
     </>
   );

@@ -3,6 +3,7 @@ import { Button, Container, Row, Col } from "react-bootstrap";
 import greekSalad from "images/greek_salad.jpg";
 import bruchetta from "images/bruchetta.svg";
 import lemonDessert from "images/lemon_dessert.jpg";
+import { LinkContainer } from "react-router-bootstrap";
 import Card from "../MainCard/MainCard";
 
 import "./Main.scss";
@@ -43,16 +44,18 @@ const cards = cardValues.map((props) => {
 
 function Main() {
   return (
-    <main className="home-view fade-in">
+    <main className="home-view fill-remaining fade-in">
       <Container>
         <Row>
           <Col>
             <h1>This weeks specials!</h1>
           </Col>
           <Col xs={12} md={3} className="right-align">
-            <Button>
-              <span>Online Menu</span>
-            </Button>
+            <LinkContainer to="/under-maintenance">
+              <Button>
+                <span>Online Menu</span>
+              </Button>
+            </LinkContainer>
           </Col>
         </Row>
         <Row className="bottom-row gx-4">{cards}</Row>

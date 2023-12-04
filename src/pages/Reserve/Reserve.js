@@ -5,8 +5,10 @@ import Footer from "components/Common/Footer/Footer";
 function Reserve() {
   return (
     <>
-      <Header />
-      <Main />
+      <div className="fill-remainder">
+        <Header />
+        <Main />
+      </div>
       <Footer />
     </>
   );

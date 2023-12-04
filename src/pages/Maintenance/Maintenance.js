@@ -6,24 +6,26 @@ import "./Maintenance.scss";
 function Maintenance() {
   return (
     <>
-      <header className="maintenance-page fade-in">
-        <Container>
-          <Row>
-            <Col>
-              <h1>Under Construction</h1>
-            </Col>
-          </Row>
-        </Container>
-      </header>
-      <main className="maintenance-page fill-remaining fade-in">
-        <Container>
-          <Row>
-            <Col>
-              <p>This page is currently undergoing maintenance.</p>
-            </Col>
-          </Row>
-        </Container>
-      </main>
+      <div className="fill-remainder">
+        <header className="maintenance-view fade-in">
+          <Container>
+            <Row>
+              <Col>
+                <h1>Under Construction</h1>
+              </Col>
+            </Row>
+          </Container>
+        </header>
+        <main className="maintenance-view fade-in">
+          <Container>
+            <Row>
+              <Col>
+                <p>This page is currently undergoing maintenance.</p>
+              </Col>
+            </Row>
+          </Container>
+        </main>
+      </div>
       <Footer />
     </>
   );

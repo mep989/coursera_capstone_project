@@ -1,7 +1,66 @@
 @import "../../../styles/variables";
 
 form.booking-form {
-  display: grid;
-  max-width: 200px; 
-  gap: 20px;
+  width: 100%;
+  padding: 2rem 4rem 2rem 4rem;
+}
+
+form.booking-form input, select{
+  width: 100%;
+}
+
+form.booking-form .container {
+  max-width: 100%;
+}
+
+article.reservation-card {
+  position: relative;
+  background-color: $highlight-color-1;
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+
+article.reservation-card .bottom-row .col {
+  margin-top: 1rem;
+}
+
+article.reservation-card img {
+  border-radius: 1rem 1rem 0rem 0rem;
+  height: 15rem;
+  width: 100%;
+  object-fit: cover; object-position: 70% 50%;
+}
+
+article.reservation-card h3 {
+  display: inline-block;
+  color: #000000;
+  font-family: $markazi;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+article.reservation-card section {
+  display: flex;
+  justify-content: space-between;
+}
+
+article.reservation-card section p {
+  display: inline-block;
+  color: $secondary-color-1;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding-top: 0.2rem;
+}
+
+article.reservation-card button {
+  position: relative;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  article.reservation-card {
+    margin-top: 2rem;
+  }
 }

@@ -128,3 +128,7 @@ header h1 {
     opacity: 100;
   }
 }
+
+.fill-remainder {
+    min-height: calc(100vh - 3.5rem);
+}
