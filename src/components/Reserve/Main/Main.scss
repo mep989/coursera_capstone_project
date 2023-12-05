@@ -6,6 +6,14 @@ main.reserve-view {
   margin-bottom: 1rem;
 }
 
+main.reserve-view > .container {
+  margin-top: 3rem;
+}
+
+main.reserve-view > .container > .row {
+  align-items: center;
+}
+
 main.reserve-view h1 {
   color: #000000;
   font-family: $markazi;
@@ -16,10 +24,6 @@ main.reserve-view h1 {
 main.reserve-view .btn-primary {
   width: 100%;
   margin: 1rem 0rem 0rem 0rem;
-}
-
-main.reserve-view .right-align {
-  text-align: right;
 }
 
 @media (max-width: 575px) {
@@ -35,10 +39,8 @@ main.reserve-view .right-align {
   }
 }
 
-main.reserve-view .bottom-row {
-  margin-top: 1rem;
-}
-
-main.reserve-view .bottom-row .col {
-  margin-top: 1rem;
+#seating-map {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1rem solid $highlight-color-2;
 }

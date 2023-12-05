@@ -2,7 +2,7 @@
 
 form.booking-form {
   width: 100%;
-  padding: 2rem 4rem 2rem 4rem;
+  padding: 3.5rem 4rem 2rem 4rem;
 }
 
 form.booking-form input, select{
@@ -13,11 +13,34 @@ form.booking-form .container {
   max-width: 100%;
 }
 
+form.booking-form .container .row {
+  margin-bottom: 1rem;
+}
+
+form.booking-form .container .row:nth-last-child(-n+2) {
+  margin-bottom: 0rem;
+}
+
+form.booking-form .container label {
+  font-size: 1.15rem;
+}
+
+form.booking-form .container select {
+  border-radius: 1rem;
+  border-width: 0rem;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+}
+
+form.booking-form .container input {
+  border-radius: 1rem;
+  border-width: 0rem;
+  padding: 0rem 0.75rem 0rem 0.75rem;
+}
+
 article.reservation-card {
   position: relative;
   background-color: $highlight-color-1;
   border-radius: 1rem;
-  margin-top: 2rem;
 }
 
 article.reservation-card .bottom-row .col {
@@ -52,6 +75,7 @@ article.reservation-card section p {
   font-size: 0.7rem;
   font-weight: bold;
   padding-top: 0.2rem;
+  margin-bottom: 0rem;
 }
 
 article.reservation-card button {

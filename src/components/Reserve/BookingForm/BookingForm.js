@@ -39,11 +39,11 @@ function BookingForm() {
       <section>
         <form className="booking-form" onSubmit={handleSubmit(onSubmit)}>
           <Container>
-            <Row className="gx-4">
-              <Col xs={12} md={9}>
+            <Row>
+              <Col xs={12} md={6}>
                 <label htmlFor="resDate">Choose date:</label>
               </Col>
-              <Col xs={12} md={3}>
+              <Col xs={12} md={6}>
                 <input
                   type="date"
                   {...register("resDate")}
@@ -54,10 +54,10 @@ function BookingForm() {
               </Col>
             </Row>
             <Row>
-              <Col xs={12} md={9}>
-                <label htmlFor="res-time">Choose time</label>
+              <Col xs={12} md={6}>
+                <label htmlFor="res-time">Choose time:</label>
               </Col>
-              <Col xs={12} md={3}>
+              <Col xs={12} md={6}>
                 <select id="res-time ">
                   <option>17:00</option>
                   <option>18:00</option>
@@ -69,10 +69,10 @@ function BookingForm() {
               </Col>
             </Row>
             <Row>
-              <Col xs={12} md={9}>
-                <label htmlFor="guests">Number of guests</label>
+              <Col xs={12} md={6}>
+                <label htmlFor="guests">Number of guests:</label>
               </Col>
-              <Col xs={12} md={3}>
+              <Col xs={12} md={6}>
                 <input
                   type="number"
                   placeholder="1"
@@ -83,10 +83,10 @@ function BookingForm() {
               </Col>
             </Row>
             <Row>
-              <Col xs={12} md={9}>
-                <label htmlFor="occasion">Occasion</label>
+              <Col xs={12} md={6}>
+                <label htmlFor="occasion">Occasion:</label>
               </Col>
-              <Col xs={12} md={3}>
+              <Col xs={12} md={6}>
                 <select id="occasion">
                   <option>Birthday</option>
                   <option>Anniversary</option>
@@ -94,8 +94,8 @@ function BookingForm() {
               </Col>
             </Row>
             <Row>
-              <Col xs={12} md={8} />
-              <Col xs={12} md={4}>
+              <Col xs={12} md={4} />
+              <Col xs={12} md={8}>
                 <Button
                   varient="primary"
                   type="submit"
