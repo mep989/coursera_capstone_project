@@ -7,7 +7,7 @@ main.reserve-view {
 }
 
 main.reserve-view > .container {
-  margin-top: 3rem;
+  margin-top: 6rem;
 }
 
 main.reserve-view > .container > .row {
@@ -36,6 +36,10 @@ main.reserve-view .btn-primary {
 @media (max-width: 768px) {
   main.reserve-view .btn-primary {
     margin: 1rem 0rem 0rem 0rem;
+  }
+
+  main.reserve-view > .container {
+    margin-top: 2.5rem;
   }
 }
 
