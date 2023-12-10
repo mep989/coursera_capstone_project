@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { Button, Container, Row, Col } from "react-bootstrap";
-import { useForm } from "react-hook-form";
+import { Button, Form } from "react-bootstrap";
+import { useForm, Controller } from "react-hook-form";
 import { format } from "date-fns";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -15,15 +14,11 @@ const ReserveSchema = yup.object().shape({
 });
 
 function BookingForm() {
-  const todaysDate = {
-    target: {
-      value: format(new Date(), "yyyy-MM-dd"),
-    },
-  };
-  const [date, setDate] = useState(todaysDate);
+  const todaysDate = format(new Date(), "yyyy-MM-dd");
 
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm({
@@ -37,76 +32,83 @@ function BookingForm() {
   return (
     <article className="reservation-card">
       <section>
-        <form className="booking-form" onSubmit={handleSubmit(onSubmit)}>
-          <Container>
-            <Row>
-              <Col xs={12} md={6}>
-                <label htmlFor="resDate">Choose date:</label>
-              </Col>
-              <Col xs={12} md={6}>
-                <input
-                  type="date"
-                  {...register("resDate")}
-                  value={date.target.value}
-                  onChange={setDate}
-                />
-                <p>{errors.resDate?.message}</p>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={6}>
-                <label htmlFor="res-time">Choose time:</label>
-              </Col>
-              <Col xs={12} md={6}>
-                <select id="res-time ">
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                  <option>21:00</option>
-                  <option>22:00</option>
-                </select>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={6}>
-                <label htmlFor="guests">Number of guests:</label>
-              </Col>
-              <Col xs={12} md={6}>
-                <input
-                  type="number"
-                  placeholder="1"
-                  min="1"
-                  max="10"
-                  id="guests"
-                />
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={6}>
-                <label htmlFor="occasion">Occasion:</label>
-              </Col>
-              <Col xs={12} md={6}>
-                <select id="occasion">
-                  <option>Birthday</option>
-                  <option>Anniversary</option>
-                </select>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={4} />
-              <Col xs={12} md={8}>
-                <Button
-                  varient="primary"
-                  type="submit"
-                  value="Make Your reservation"
+        <Form className="booking-form" onSubmit={handleSubmit(onSubmit)}>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="resDate">Choose date:</Form.Label>
+            <Form.Control
+              type="date"
+              {...register("resDate")}
+              defaultValue={todaysDate}
+            />
+            <Form.Text className="text-danger">
+              {errors.resDate?.message}
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="resTime">Choose time:</Form.Label>
+            <Controller
+              control={control}
+              name="resTime"
+              defaultValue="17:00"
+              render={({ field: { onChange, onBlur, value, ref } }) => (
+                <Form.Select
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  value={value}
+                  ref={ref}
+                  isInvalid={errors.resTime}
                 >
-                  <span>Make Your Reservation</span>
-                </Button>
-              </Col>
-            </Row>
-          </Container>
-        </form>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
+                </Form.Select>
+              )}
+            />
+            <Form.Text className="text-danger">
+              {errors.resTime?.message}
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="guests">Number of guests:</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="1"
+              min="1"
+              max="10"
+              {...register("guests")}
+              defaultValue={1}
+            />
+            <Form.Text className="text-danger">
+              {errors.guests?.message}
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="occasion">Occasion:</Form.Label>
+            <Controller
+              control={control}
+              name="occasion"
+              defaultValue="Birthday"
+              render={({ field: { onChange, onBlur, value, ref } }) => (
+                <Form.Select
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  value={value}
+                  ref={ref}
+                  isInvalid={errors.occasion}
+                >
+                  <option value="Birthday">Birthday</option>
+                  <option value="Anniversary">Anniversary</option>
+                </Form.Select>
+              )}
+            />
+          </Form.Group>
+          <Button varient="primary" type="submit" value="Make Your reservation">
+            <span>Make Your Reservation</span>
+          </Button>
+        </Form>
       </section>
     </article>
   );

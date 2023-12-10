@@ -7,11 +7,7 @@ main.reserve-view {
 }
 
 main.reserve-view > .container {
-  margin-top: 6rem;
-}
-
-main.reserve-view > .container > .row {
-  align-items: center;
+  margin-top: 3rem;
 }
 
 main.reserve-view h1 {
@@ -46,5 +42,12 @@ main.reserve-view .btn-primary {
 #seating-map {
   width: 100%;
   border-radius: 1rem;
-  border: 1rem solid $highlight-color-2;
+  border: 0.25rem solid $highlight-color-2;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  #seating-map {
+    margin-top: 2rem;
+  }
 }

@@ -9,11 +9,11 @@ function Main() {
     <main className="reserve-view fade-in">
       <Container>
         <Row>
-          <Col md={4} lg={5}>
-            <img id="seating-map" src={seatingMap} alt="Seating Map" />
-          </Col>
-          <Col md={8} lg={7}>
+          <Col md={5} lg={4}>
             <BookingForm />
+          </Col>
+          <Col md={7} lg={8}>
+            <img id="seating-map" src={seatingMap} alt="Seating Map" />
           </Col>
         </Row>
       </Container>

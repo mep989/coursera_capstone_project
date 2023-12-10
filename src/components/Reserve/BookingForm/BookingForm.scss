@@ -2,49 +2,23 @@
 
 form.booking-form {
   width: 100%;
-  padding: 3.5rem 4rem 2rem 4rem;
+  padding: 2rem 2rem 2rem 2rem;
 }
 
-form.booking-form input, select{
-  width: 100%;
-}
-
-form.booking-form .container {
-  max-width: 100%;
-}
-
-form.booking-form .container .row {
-  margin-bottom: 1rem;
-}
-
-form.booking-form .container .row:nth-last-child(-n+2) {
-  margin-bottom: 0rem;
-}
-
-form.booking-form .container label {
-  font-size: 1.15rem;
-}
-
-form.booking-form .container select {
+form.booking-form select {
   border-radius: 1rem;
   border-width: 0rem;
-  padding: 0rem 0.5rem 0rem 0.5rem;
 }
 
-form.booking-form .container input {
+form.booking-form input {
   border-radius: 1rem;
   border-width: 0rem;
-  padding: 0rem 0.75rem 0rem 0.75rem;
 }
 
 article.reservation-card {
   position: relative;
   background-color: $highlight-color-1;
   border-radius: 1rem;
-}
-
-article.reservation-card .bottom-row .col {
-  margin-top: 1rem;
 }
 
 article.reservation-card img {
@@ -81,10 +55,4 @@ article.reservation-card section p {
 article.reservation-card button {
   position: relative;
   font-size: 1rem;
-}
-
-@media (max-width: 768px) {
-  article.reservation-card {
-    margin-top: 2rem;
-  }
 }
