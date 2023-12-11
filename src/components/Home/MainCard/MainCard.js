@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
+import { LinkContainer } from "react-router-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,9 +22,11 @@ function Card({ title, imageSrc, description, price }) {
         <p>{price}</p>
       </section>
       <p>{description}</p>
-      <Button variant="link">
-        Order a delivery <FontAwesomeIcon icon={faTruck} />
-      </Button>
+      <LinkContainer to="/under-maintenance">
+        <Button variant="link">
+          Order a delivery <FontAwesomeIcon icon={faTruck} />
+        </Button>
+      </LinkContainer>
     </article>
   );
 }

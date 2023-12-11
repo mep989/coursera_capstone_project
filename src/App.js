@@ -12,9 +12,14 @@ function App() {
 
   // check FontFaceSet API to verify custom fonts are fully loaded before elements (prevents FOUT flicker)
   useEffect(() => {
-    document.fonts.load("1.5rem Karla");
-    document.fonts.load("4.75rem Markazi Text");
-    document.fonts.ready.then(() => setIsReady(true));
+    if (typeof document !== "undefined" && "fonts" in document) {
+      document.fonts.load("1.5rem Karla");
+      document.fonts.load("4.75rem Markazi Text");
+      document.fonts.ready.then(() => setIsReady(true));
+    } else {
+      // If document or document.fonts is not defined, we assume the fonts are ready
+      setIsReady(true);
+    }
   }, []);
 
   return (
