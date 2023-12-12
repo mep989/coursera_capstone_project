@@ -27,7 +27,12 @@ const ReserveSchema = yup.object().shape({
 });
 
 function BookingForm(props) {
-  const { availableTimes, dispatchTimes } = props;
+  const {
+    availableTimes,
+    dispatchTimes,
+    onSubmit,
+    submitResponse = null,
+  } = props;
 
   if (!Array.isArray(availableTimes))
     throw new Error("availableTimes is not an array");
@@ -71,14 +76,14 @@ function BookingForm(props) {
     dispatchTimes({ payload: dateString });
   };
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-
   return (
     <article className="reservation-card">
       <section>
-        <Form className="booking-form" onSubmit={handleSubmit(onSubmit)}>
+        <Form
+          className="booking-form"
+          onSubmit={handleSubmit(onSubmit)}
+          data-testid="booking-form"
+        >
           <Form.Group className="mb-3">
             <Form.Label htmlFor="resDate">Choose date:</Form.Label>
             <Form.Control
@@ -98,7 +103,9 @@ function BookingForm(props) {
               control={control}
               name="resTime"
               defaultValue="17:00"
-              render={({ field: { onChange, onBlur, value, ref } }) => (
+              render={({
+                field: { onChange, onBlur, value = resTime, ref },
+              }) => (
                 <Form.Select
                   id="resTime"
                   onChange={(e) => {
@@ -140,7 +147,9 @@ function BookingForm(props) {
               control={control}
               name="occasion"
               defaultValue="Birthday"
-              render={({ field: { onChange, onBlur, value, ref } }) => (
+              render={({
+                field: { onChange, onBlur, value = occasion, ref },
+              }) => (
                 <Form.Select
                   id="occasion"
                   onChange={(e) => {
@@ -158,9 +167,17 @@ function BookingForm(props) {
               )}
             />
           </Form.Group>
-          <Button varient="primary" type="submit" value="Make Your reservation">
-            <span>Make Your Reservation</span>
-          </Button>
+          <Form.Group className="text-center">
+            <Button
+              varient="primary"
+              type="submit"
+              value="Make Your reservation"
+              className="mb-3"
+            >
+              <span>Make Your Reservation</span>
+            </Button>
+            <Form.Text className="text-success">{submitResponse}</Form.Text>
+          </Form.Group>
         </Form>
       </section>
     </article>
@@ -170,6 +187,12 @@ function BookingForm(props) {
 BookingForm.propTypes = {
   availableTimes: PropTypes.array.isRequired,
   dispatchTimes: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  submitResponse: PropTypes.string,
+};
+
+BookingForm.defaultProps = {
+  submitResponse: null,
 };
 
 export default BookingForm;
