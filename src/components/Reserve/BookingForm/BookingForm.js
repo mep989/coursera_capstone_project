@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm, Controller } from "react-hook-form";
 import { format } from "date-fns";
@@ -16,7 +16,7 @@ const ReserveSchema = yup.object().shape({
   resTime: yup
     .string()
     .required("Reservation time is required")
-    .typeError("Reservation time is required"),
+    .typeError("Reservation time is required 2"),
   guests: yup
     .number("Must be a number")
     .required("Number of guests is required")
@@ -34,12 +34,12 @@ function BookingForm(props) {
   if (typeof dispatchTimes != "function")
     throw new Error("dispatchTimes is not a function");
 
-  const todaysDate = {
-    target: {
-      value: format(new Date(), "yyyy-MM-dd"),
-    },
-  };
+  const todaysDate = format(new Date(), "yyyy-MM-dd");
+
   const [resDate, setResDate] = useState(todaysDate);
+  const [resTime, setResTime] = useState("17:00");
+  const [guests, setGuests] = useState(1);
+  const [occasion, setOccasion] = useState("Birthday");
 
   function createTimeOptions() {
     return availableTimes.map((time) => {
@@ -56,13 +56,19 @@ function BookingForm(props) {
     control,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm({
     resolver: yupResolver(ReserveSchema),
   });
 
-  const onDateUpdate = (e) => {
-    setResDate({ target: { value: e.target.value } });
-    dispatchTimes({ payload: resDate.target.value });
+  useEffect(() => {
+    setResTime(availableTimes?.[0]);
+    setValue("resTime", availableTimes?.[0]);
+  }, [availableTimes, setValue]);
+
+  const onDateUpdate = (dateString) => {
+    setResDate(dateString);
+    dispatchTimes({ payload: dateString });
   };
 
   const onSubmit = (data) => {
@@ -79,8 +85,8 @@ function BookingForm(props) {
               id="resDate"
               type="date"
               {...register("resDate")}
-              value={resDate.target.value}
-              onChange={onDateUpdate}
+              value={resDate}
+              onChange={(e) => onDateUpdate(e.target.value)}
             />
             <Form.Text className="text-danger">
               {errors.resDate?.message}
@@ -91,9 +97,14 @@ function BookingForm(props) {
             <Controller
               control={control}
               name="resTime"
+              defaultValue="17:00"
               render={({ field: { onChange, onBlur, value, ref } }) => (
                 <Form.Select
-                  onChange={onChange}
+                  id="resTime"
+                  onChange={(e) => {
+                    setResTime(e.target.value);
+                    onChange(e);
+                  }}
                   onBlur={onBlur}
                   value={value}
                   ref={ref}
@@ -110,12 +121,14 @@ function BookingForm(props) {
           <Form.Group className="mb-3">
             <Form.Label htmlFor="guests">Number of guests:</Form.Label>
             <Form.Control
+              id="guests"
               type="number"
               placeholder="1"
               min="1"
               max="10"
               {...register("guests")}
-              defaultValue={1}
+              value={guests}
+              onChange={(e) => setGuests(e.target.value)}
             />
             <Form.Text className="text-danger">
               {errors.guests?.message}
@@ -129,7 +142,11 @@ function BookingForm(props) {
               defaultValue="Birthday"
               render={({ field: { onChange, onBlur, value, ref } }) => (
                 <Form.Select
-                  onChange={onChange}
+                  id="occasion"
+                  onChange={(e) => {
+                    setOccasion(e.target.value);
+                    onChange(e);
+                  }}
                   onBlur={onBlur}
                   value={value}
                   ref={ref}
