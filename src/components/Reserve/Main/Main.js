@@ -1,6 +1,7 @@
-import { useState, useReducer } from "react";
+import { useState, useEffect, useReducer } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import seatingMap from "images/small-restaurant-seating-plan.png";
+import { fetchAPI } from "utils/fakeApi";
 import BookingForm from "../BookingForm/BookingForm";
 
 import "./Main.scss";
@@ -10,11 +11,17 @@ function Main() {
   const [submitResponse, setSubmitResponse] = useState(null);
 
   function initializeTimes() {
-    return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+    const date = new Date();
+    console.log(date);
+    const data = fetchAPI(date);
+    const parsedData = JSON.parse(data);
+    return parsedData.availableTimes;
   }
 
   function updateTimes(state, action) {
-    return ["15:00", "16:00", "17:00", "18:00", "19:00", "20:00"];
+    const data = fetchAPI(new Date(action.payload));
+    const parsedData = JSON.parse(data);
+    return parsedData.availableTimes;
   }
 
   const onSubmit = (data) => {
