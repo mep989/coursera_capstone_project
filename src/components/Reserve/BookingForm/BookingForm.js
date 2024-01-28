@@ -176,7 +176,15 @@ function BookingForm(props) {
             >
               <span>Make Your Reservation</span>
             </Button>
-            <Form.Text className="text-success">{submitResponse}</Form.Text>
+            <Form.Text
+              className={
+                submitResponse?.type === "success"
+                  ? "text-success"
+                  : "text-danger"
+              }
+            >
+              {submitResponse?.message}
+            </Form.Text>
           </Form.Group>
         </Form>
       </section>
@@ -188,7 +196,7 @@ BookingForm.propTypes = {
   availableTimes: PropTypes.array.isRequired,
   dispatchTimes: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  submitResponse: PropTypes.string,
+  submitResponse: PropTypes.object,
 };
 
 BookingForm.defaultProps = {

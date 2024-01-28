@@ -1,7 +1,7 @@
-import { useState, useEffect, useReducer } from "react";
+import { useState, useReducer } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import seatingMap from "images/small-restaurant-seating-plan.png";
-import { fetchAPI } from "utils/fakeApi";
+import { fetchAPI, submitAPI } from "utils/fakeApi";
 import BookingForm from "../BookingForm/BookingForm";
 
 import "./Main.scss";
@@ -12,21 +12,23 @@ function Main() {
 
   function initializeTimes() {
     const date = new Date();
-    console.log(date);
-    const data = fetchAPI(date);
-    const parsedData = JSON.parse(data);
+    const initData = fetchAPI(date);
+    const parsedData = JSON.parse(initData);
     return parsedData.availableTimes;
   }
 
   function updateTimes(state, action) {
-    const data = fetchAPI(new Date(action.payload));
-    const parsedData = JSON.parse(data);
+    const dateSplit = action.payload.split("-");
+    const updateData = fetchAPI(
+      new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2]),
+    );
+    const parsedData = JSON.parse(updateData);
     return parsedData.availableTimes;
   }
 
   const onSubmit = (data) => {
-    console.log(data);
-    setSubmitResponse("Reservation Submitted!");
+    const response = JSON.parse(submitAPI(data));
+    setSubmitResponse(response);
   };
 
   return (

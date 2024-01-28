@@ -54,22 +54,21 @@ const dataByDay = {
 };
 
 const getTimesByDay = (day) => {
-  console.log(day);
   switch (day) {
     case 0:
-      return dataByDay.monday;
-    case 1:
-      return dataByDay.tuesday;
-    case 2:
-      return dataByDay.wednesday;
-    case 3:
-      return dataByDay.thursday;
-    case 4:
-      return dataByDay.friday;
-    case 5:
-      return dataByDay.saturday;
-    case 6:
       return dataByDay.sunday;
+    case 1:
+      return dataByDay.monday;
+    case 2:
+      return dataByDay.tuesday;
+    case 3:
+      return dataByDay.wednesday;
+    case 4:
+      return dataByDay.thursday;
+    case 5:
+      return dataByDay.friday;
+    case 6:
+      return dataByDay.saturday;
     default:
       return { error: "Improper date format" };
   }
@@ -77,13 +76,18 @@ const getTimesByDay = (day) => {
 
 const fetchAPI = (date) => {
   const result = getTimesByDay(date.getDay());
-  console.log(result);
   return JSON.stringify(result);
 };
 
 const submitAPI = (formData) => {
-  const timesData = getTimesByDay(formData.date.getDay());
-  return true;
+  const timesData = getTimesByDay(formData.resDate.getDay());
+  if (timesData.availableTimes.includes(formData.resTime)) {
+    return JSON.stringify({
+      message: "Reservation Submitted!",
+      type: "success",
+    });
+  }
+  return JSON.stringify({ message: "Reservation Failed!", type: "error" });
 };
 
 export { fetchAPI, submitAPI };
