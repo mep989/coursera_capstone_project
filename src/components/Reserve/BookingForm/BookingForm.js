@@ -75,9 +75,10 @@ function BookingForm(props) {
 
   const {
     register,
+    trigger,
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
     setValue,
   } = useForm({
     resolver: yupResolver(ReserveSchema),
@@ -108,7 +109,10 @@ function BookingForm(props) {
               type="date"
               {...register("resDate")}
               value={resDate}
-              onChange={(e) => onDateUpdate(e.target.value)}
+              onChange={(e) => {
+                onDateUpdate(e.target.value);
+                trigger();
+              }}
             />
             <Form.Text className="text-danger">
               {errors.resDate?.message}
@@ -128,6 +132,7 @@ function BookingForm(props) {
                   onChange={(e) => {
                     setResTime(e.target.value);
                     onChange(e);
+                    trigger();
                   }}
                   onBlur={onBlur}
                   value={value}
@@ -190,6 +195,7 @@ function BookingForm(props) {
               type="submit"
               value="Make Your reservation"
               className="mb-3"
+              disabled={!isValid}
             >
               <span>Make Your Reservation</span>
             </Button>
