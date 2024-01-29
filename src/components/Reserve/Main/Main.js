@@ -1,4 +1,5 @@
 import { useState, useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import seatingMap from "images/small-restaurant-seating-plan.png";
 import { fetchAPI, submitAPI } from "utils/fakeApi";
@@ -9,6 +10,7 @@ import "./Main.scss";
 function Main() {
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
   const [submitResponse, setSubmitResponse] = useState(null);
+  const navigate = useNavigate();
 
   function initializeTimes() {
     const date = new Date();
@@ -29,6 +31,14 @@ function Main() {
   const onSubmit = (data) => {
     const response = JSON.parse(submitAPI(data));
     setSubmitResponse(response);
+    if (response.type === "success")
+      setTimeout(
+        () =>
+          navigate("/booking-confirmation", {
+            state: { reservationData: data },
+          }),
+        2000,
+      );
   };
 
   return (

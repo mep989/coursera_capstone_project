@@ -1,22 +1,41 @@
 import { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm, Controller } from "react-hook-form";
-import { format } from "date-fns";
+import { format, startOfDay } from "date-fns";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import PropTypes from "prop-types";
 
 import "./BookingForm.scss";
 
+// Get current date and time
+const now = new Date();
+// Get start of current day
+const startOfToday = startOfDay(new Date());
+
+// Format current date and time to 'yyyy-MM-dd' and 'HH:mm' respectively
+const todaysDate = format(now, "yyyy-MM-dd");
+const currentTime = format(now, "HH:mm");
+
 const ReserveSchema = yup.object().shape({
   resDate: yup
     .date("Must be a valid date")
     .required("Reservation date is required")
-    .typeError("Reservation date is required"),
+    .typeError("Reservation date is required")
+    .min(startOfToday, "Reservation date must be in the future"),
   resTime: yup
     .string()
     .required("Reservation time is required")
-    .typeError("Reservation time is required 2"),
+    .typeError("Reservation time is required")
+    .test(
+      "is-greater",
+      "Reservation time must be in the future",
+      function testDateAndTime(value) {
+        const { resDate } = this.parent;
+        const dateString = format(resDate, "yyyy-MM-dd");
+        return !(dateString === todaysDate && value <= currentTime);
+      },
+    ),
   guests: yup
     .number("Must be a number")
     .required("Number of guests is required")
@@ -38,8 +57,6 @@ function BookingForm(props) {
     throw new Error("availableTimes is not an array");
   if (typeof dispatchTimes != "function")
     throw new Error("dispatchTimes is not a function");
-
-  const todaysDate = format(new Date(), "yyyy-MM-dd");
 
   const [resDate, setResDate] = useState(todaysDate);
   const [resTime, setResTime] = useState("17:00");

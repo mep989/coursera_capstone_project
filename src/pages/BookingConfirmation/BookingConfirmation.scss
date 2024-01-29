@@ -1,0 +1,26 @@
+@import "../../styles/variables";
+
+header.confirmation-view {
+    background-color: $primary-color-1;
+}
+
+header.confirmation-view .col {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    text-align: center;
+}
+
+header.confirmation-view h1 {
+    padding-top: 0rem;
+    height: auto;
+}
+
+main.confirmation-view {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-size: 2rem;
+}
+
+main.confirmation-view .col {
+    text-align: center;
+}

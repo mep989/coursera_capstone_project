@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "pages/Layout/Layout";
 import Home from "pages/Home/Home";
 import Reserve from "pages/Reserve/Reserve";
+import BookingConfirmation from "pages/BookingConfirmation/BookingConfirmation";
 import Maintenance from "pages/Maintenance/Maintenance";
 
 import "App.scss";
@@ -29,6 +30,10 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="reserve" element={<Reserve />} />
+            <Route
+              path="booking-confirmation"
+              element={<BookingConfirmation />}
+            />
             <Route path="under-maintenance" element={<Maintenance />} />
           </Route>
         </Routes>
