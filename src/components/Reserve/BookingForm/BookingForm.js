@@ -32,7 +32,15 @@ const ReserveSchema = yup.object().shape({
       "Reservation time must be in the future",
       function testDateAndTime(value) {
         const { resDate } = this.parent;
+        if (!resDate || isNaN(Date.parse(resDate))) return true;
         const dateString = format(resDate, "yyyy-MM-dd");
+        const dateSplit = dateString.split("-");
+        const updateDate = new Date(
+          dateSplit[0],
+          dateSplit[1] - 1,
+          dateSplit[2],
+        );
+        if (isNaN(updateDate?.getTime())) return true;
         return !(dateString === todaysDate && value <= currentTime);
       },
     ),
@@ -87,12 +95,20 @@ function BookingForm(props) {
   useEffect(() => {
     setResTime(availableTimes?.[0]);
     setValue("resTime", availableTimes?.[0]);
-  }, [availableTimes, setValue]);
+    setValue("resDate", resDate);
+  }, [availableTimes, resDate, setValue]);
 
-  const onDateUpdate = (dateString) => {
-    setResDate(dateString);
+  const onDateUpdate = () => {
+    const dateString = document.getElementById("resDate").value;
+    setResDate(dateString ?? null);
     dispatchTimes({ payload: dateString });
+    setValue("resDate", dateString);
+    trigger();
   };
+
+  useEffect(() => {
+    trigger();
+  }, [trigger, resDate, resTime, guests, occasion]);
 
   return (
     <article className="reservation-card">
@@ -107,12 +123,11 @@ function BookingForm(props) {
             <Form.Control
               id="resDate"
               type="date"
-              {...register("resDate")}
-              value={resDate}
+              value={resDate ?? todaysDate}
               onChange={(e) => {
-                onDateUpdate(e.target.value);
-                trigger();
+                onDateUpdate();
               }}
+              data-testid="resDate"
             />
             <Form.Text className="text-danger">
               {errors.resDate?.message}
@@ -138,6 +153,7 @@ function BookingForm(props) {
                   value={value}
                   ref={ref}
                   isInvalid={errors.resTime}
+                  data-testid="resTime"
                 >
                   {createTimeOptions()}
                 </Form.Select>
@@ -158,6 +174,7 @@ function BookingForm(props) {
               {...register("guests")}
               value={guests}
               onChange={(e) => setGuests(e.target.value)}
+              data-testid="guests"
             />
             <Form.Text className="text-danger">
               {errors.guests?.message}
@@ -182,6 +199,7 @@ function BookingForm(props) {
                   value={value}
                   ref={ref}
                   isInvalid={errors.occasion}
+                  data-testid="occasion"
                 >
                   <option value="Birthday">Birthday</option>
                   <option value="Anniversary">Anniversary</option>

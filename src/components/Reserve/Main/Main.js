@@ -20,10 +20,13 @@ function Main() {
   }
 
   function updateTimes(state, action) {
+    // Return state if action.payload is null or undefined
+    if (!action.payload) return state;
     const dateSplit = action.payload.split("-");
-    const updateData = fetchAPI(
-      new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2]),
-    );
+    const updateDate = new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2]);
+    // Check if updateDate is a valid date. Return state if not.
+    if (isNaN(updateDate.getTime())) return state;
+    const updateData = fetchAPI(updateDate);
     const parsedData = JSON.parse(updateData);
     return parsedData.availableTimes;
   }
