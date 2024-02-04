@@ -82,7 +82,6 @@ function BookingForm(props) {
   }
 
   const {
-    register,
     trigger,
     control,
     handleSubmit,
@@ -96,7 +95,9 @@ function BookingForm(props) {
     setResTime(availableTimes?.[0]);
     setValue("resTime", availableTimes?.[0]);
     setValue("resDate", resDate);
-  }, [availableTimes, resDate, setValue]);
+    setValue("guests", guests);
+    setValue("occasion", occasion);
+  }, [availableTimes, resDate, guests, occasion, setValue]);
 
   const onDateUpdate = () => {
     const dateString = document.getElementById("resDate").value;
@@ -171,9 +172,11 @@ function BookingForm(props) {
               placeholder="1"
               min="1"
               max="10"
-              {...register("guests")}
               value={guests}
-              onChange={(e) => setGuests(e.target.value)}
+              onChange={(e) => {
+                setValue("guests", e.target.value);
+                setGuests(e.target.value);
+              }}
               data-testid="guests"
             />
             <Form.Text className="text-danger">
@@ -206,6 +209,9 @@ function BookingForm(props) {
                 </Form.Select>
               )}
             />
+            <Form.Text className="text-danger">
+              {errors.occasion?.message}
+            </Form.Text>
           </Form.Group>
           <Form.Group className="text-center">
             <Button
