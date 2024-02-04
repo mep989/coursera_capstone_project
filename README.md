@@ -1,3 +1,9 @@
+# META Front-end developer capstone project
+
+This is my final submission for the Meta Front-End Developer Professional Certificate Capstone Project. It is my recreation of the Little Lemon website based on all the provided requirements.
+
+The following are instructions that come with create-react-app (in case you find those useful).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
